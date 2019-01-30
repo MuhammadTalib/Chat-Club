@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#797979"
+    tools:context=".Profile">
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#cedfef">
+
+        <ImageView
+            android:id="@+id/myCoverphoto"
+            android:layout_width="match_parent"
+            android:layout_height="215dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="#ffffff"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_person_plain"
+            android:adjustViewBounds="true"
+
+             />
+
+
+        <com.github.abdularis.civ.CircleImageView
+            android:id="@+id/myProfileImageee"
+            android:layout_width="215dp"
+            android:layout_height="215dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="115dp"
+            android:src="@drawable/white" />
+
+        <com.github.abdularis.civ.CircleImageView
+            android:id="@+id/myProfileImage"
+            android:layout_width="205dp"
+            android:layout_height="205dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="120dp"
+            android:scaleType="centerCrop"
+
+             />
+
+        <ImageView
+            android:id="@+id/editpen"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_edit"
+            android:layout_marginTop="280dp"
+            android:layout_marginLeft="250dp"/>
+       <Button
+           android:id="@+id/editCoverPhoto"
+           android:layout_alignBottom="@+id/myCoverphoto"
+           android:layout_alignParentEnd="true"
+           android:layout_margin="5dp"
+           android:layout_width="70dp"
+           android:layout_height="35dp"
+           android:text="       Edit"
+           android:textColor="#cfcfcf"
+           android:foregroundTint="#c9dada"
+           android:foregroundGravity="center_vertical"
+           android:foreground="@drawable/ic_camera_enhance_black_24dp"
+           android:background="@drawable/buttonbackground"
+           />
+        <TextView
+            android:id="@+id/MyUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="50dp"
+            android:text="My Name"
+            android:layout_below="@+id/myProfileImage"
+            android:layout_centerHorizontal="true"
+            />
+        <ImageView
+            android:layout_marginBottom="10dp"
+            android:layout_alignBottom="@+id/postfly"
+            android:id="@+id/camera"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_camera_enhance_black_24dp"/>
+        <EditText
+
+            android:layout_marginLeft="50dp"
+            android:id="@+id/postfly"
+            android:layout_marginTop="390dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Whats on your mind"/>
+        <ImageView
+            android:id="@+id/fly"
+            android:layout_marginTop="390dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/ic_flight_black_24dp"
+            android:layout_alignParentEnd="true"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fly"
+            android:background="#fff"
+            android:orientation="vertical">
+            <android.support.v7.widget.RecyclerView
+
+                android:id="@+id/MyProfilepostList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="10dp">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</ScrollView>

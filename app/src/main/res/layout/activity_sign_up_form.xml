@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundcolour"
+    android:padding="30dp"
+    tools:context=".SignUpForm">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="50dp"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        android:text="SIGN UP"/>
+
+    <TextView
+        android:id="@+id/passworderror"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="*Password too short"
+        android:textSize="10dp"
+        android:textStyle="italic"
+        android:textColor="#f00"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
+        android:paddingHorizontal="10dp"
+        android:orientation="horizontal">
+
+        <EditText
+
+            android:id="@+id/signupnameinput"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:drawableLeft="@drawable/ic_person"
+            android:hint="USER NAME"
+            android:textSize="15dp"
+
+            />
+
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
+        android:paddingHorizontal="10dp"
+        android:orientation="horizontal">
+
+        <EditText
+
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/signupemailinput"
+            android:enabled="false"
+            android:drawableLeft="@drawable/ic_email"
+            android:textSize="15dp"
+            android:hint="EMAIL ADDRESS" />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
+        android:textSize="15dp"
+        android:paddingHorizontal="10dp"
+        android:orientation="horizontal">
+
+        <EditText
+
+            android:id="@+id/signuppasswordinput"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:drawableLeft="@drawable/ic_security"
+            android:hint="********"
+
+            />
+
+    </android.support.design.widget.TextInputLayout>
+    <TextView
+        android:id="@+id/checkboxerror"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="*You have to agree with terms and conditions"
+        android:textSize="10dp"
+        android:textStyle="italic"
+        android:textColor="#f00"/>
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:text="Do you agree to Terms and Conditions"
+        android:layout_height="wrap_content" />
+    <Spinner
+        android:id="@+id/CountrySpinner"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        >
+    </Spinner>
+    <Button
+        android:id="@+id/signupsignup"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:text="SIGN UP"
+        android:textSize="24dp"
+        android:background="@color/darkbackground"
+        android:textColor="@color/blue"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"/>
+
+</LinearLayout>

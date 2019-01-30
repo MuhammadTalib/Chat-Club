@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="7dp"
+    android:background="@color/colorPrimary"
+    tools:context=".ChatClubToolbar">
+    <TextView
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chat List"
+        android:textColor="#fff"
+        android:textSize="25dp"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:id="@+id/messengerButton"
+        android:onClick="MessengerClick"
+        android:layout_width="45dp"
+        android:src="@drawable/messeneger"
+        android:layout_height="45dp"
+        android:layout_gravity="right"/>
+
+</FrameLayout>

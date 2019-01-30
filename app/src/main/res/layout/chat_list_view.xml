@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:layout_marginTop="8dp"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/graybutton">
+
+    <com.github.abdularis.civ.CircleImageView
+
+        android:id="@+id/image"
+        android:background="@drawable/circle"
+        android:scaleType="centerCrop"
+        android:layout_margin="10dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_person" />
+
+    <TextView
+        android:id="@+id/name"
+        android:text="User Name"
+        android:textColor="#01018e"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="85dp"
+        android:layout_marginTop="18dp"
+        android:textSize="23dp"
+
+        />
+    <TextView
+        android:id="@+id/status"
+        android:text="Status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="85dp"
+        />
+
+
+</FrameLayout>
