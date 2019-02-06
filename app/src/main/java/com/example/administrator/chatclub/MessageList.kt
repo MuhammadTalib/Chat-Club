@@ -39,7 +39,7 @@ class MessageList : AppCompatActivity() {
 
 
         myMsgsList.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL,false)
-        myMsgsList.adapter = MessageListAdapter(MainPage.AccountData[MainPage.MyAccountIndex].FriendList[ChatList.friend].MessageArray)
+      //  myMsgsList.adapter = MessageListAdapter(MainPage.AccountData[MainPage.MyAccountIndex].FriendList[ChatList.friend].MessageArray)
 
 
         msgimagefly.setOnClickListener{
@@ -67,32 +67,32 @@ class MessageList : AppCompatActivity() {
                     MSG1.ImagedMessage=1
                 }
 
-                MainPage.AccountData[MainPage.MyAccountIndex].FriendList[ChatList.friend].MessageArray.add(MSG)
+                //MainPage.AccountData[MainPage.MyAccountIndex].FriendList[ChatList.friend].MessageArray.add(MSG)
                 MainPage.AccountData[MainPage.MyAccountIndex].lastmessage=MSG.msgText
                 for(i in  MainPage.AccountData.indices)
                 {
-                    if(MainPage.AccountData[i].Username==MainPage.AccountData[MainPage.MyAccountIndex].FriendList[ChatList.friend].Username)
-                    {
-                        myFriendIndex=i
-                    }
+                //    if(MainPage.AccountData[i].Username==MainPage.AccountData[MainPage.MyAccountIndex].FriendList[ChatList.friend].Username)
+                //    {
+                //        myFriendIndex=i
+                  //  }
                 }
-                for(i in  MainPage.AccountData[myFriendIndex].FriendList.indices)
+               // for(i in  MainPage.AccountData[myFriendIndex].FriendList.indices)
                 {
-                    if(MainPage.AccountData[MainPage.MyAccountIndex].Username==MainPage.AccountData[myFriendIndex].FriendList[i].Username)
-                    {
-                        myIndexInMyFriendList=i
-                    }
+                   // if(MainPage.AccountData[MainPage.MyAccountIndex].Username==MainPage.AccountData[myFriendIndex].FriendList[i].Username)
+                   // {
+                    //    myIndexInMyFriendList=i
+                   // }
                 }
 
 
                 Log.e("hold","My Friend Index $myFriendIndex")
                 Log.e("hold","MyIndex $myIndexInMyFriendList")
-                MainPage.AccountData[myFriendIndex].FriendList[myIndexInMyFriendList].MessageArray.add(MSG1)
-
+               // MainPage.AccountData[myFriendIndex].FriendList[myIndexInMyFriendList].MessageArray.add(MSG1)
+//
                 msgEt.setText("")
-                val lastPosition = MainPage.AccountData[MainPage.MyAccountIndex].FriendList[ChatList.friend].MessageArray.size-1
-                myMsgsList.adapter?.notifyItemInserted(lastPosition)
-                myMsgsList.scrollToPosition(lastPosition)
+               // val lastPosition = MainPage.AccountData[MainPage.MyAccountIndex].FriendList[ChatList.friend].MessageArray.size-1
+              //  myMsgsList.adapter?.notifyItemInserted(lastPosition)
+              //  myMsgsList.scrollToPosition(lastPosition)
            }
 
 

@@ -53,12 +53,12 @@ class Profile : AppCompatActivity() {
         else if(MainPage.AccountData[MainPage.MyAccountIndex].userImage is Bitmap)
             myProfileImage.setImageBitmap(MainPage.AccountData[MainPage.MyAccountIndex].userImage as Bitmap)
 
-        MyProfilepostList.layoutManager = LinearLayoutManager( this, LinearLayout.VERTICAL,false)
-        MyProfilepostList.adapter = PostListAdapter(MainPage.AccountData[MainPage.MyAccountIndex].personalposts,::onItemClick,::onButtonClick)
+       // MyProfilepostList.layoutManager = LinearLayoutManager( this, LinearLayout.VERTICAL,false)
+       // MyProfilepostList.adapter = PostListAdapter(MainPage.AccountData[MainPage.MyAccountIndex].personalposts,::onItemClick,::onButtonClick)
 
         fly.setOnClickListener{
             post.postContent=postfly.text.toString()
-            MainPage.AccountData[MainPage.MyAccountIndex].personalposts.add(post)
+           // MainPage.AccountData[MainPage.MyAccountIndex].personalposts.add(post)
             postfly.hint="Whats on your mind"
 
         }

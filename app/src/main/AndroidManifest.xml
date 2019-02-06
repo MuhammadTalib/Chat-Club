@@ -36,7 +36,11 @@
         <activity android:name=".ChatList" />
         <activity android:name=".Profile" />
         <activity android:name=".MessageList" />
-        <activity android:name=".AddChatListMember"></activity>
+        <activity android:name=".AddChatListMember" />
+        <activity android:name=".LAS" />
+        <activity android:name=".aaaa" />
+        <activity android:name=".user" />
+        <activity android:name=".ChatListPage"></activity>
     </application>
 
 </manifest>

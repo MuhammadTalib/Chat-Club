@@ -1,9 +1,8 @@
 package com.example.administrator.chatclub
 
-import android.app.Activity
 import android.content.Intent
-import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.widget.LinearLayout
@@ -14,24 +13,18 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_chat_list.*
 
-
-class ChatList : AppCompatActivity() {
+class ChatListPage : AppCompatActivity() {
 
     lateinit var Authentication: FirebaseAuth
     var CurrentUser:Users? = null
     lateinit var friendlist:ArrayList<Users>
     lateinit var chatuserAdapter:ChatListAdapter
-    companion object {
-        var friend=0
-        //var new=Users()
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_chat_list)
+        setContentView(R.layout.activity_chat_list_page)
         getSupportActionBar()?.hide()
-
-        friendlist= arrayListOf(Users())
+        friendlist= arrayListOf()
 
         Authentication = FirebaseAuth.getInstance()
 
@@ -40,16 +33,17 @@ class ChatList : AppCompatActivity() {
         else if(MainPage.AccountData[MainPage.MyAccountIndex].userImage is Bitmap)
             userImage.setImageBitmap(MainPage.AccountData[MainPage.MyAccountIndex].userImage as Bitmap)
 */
+
         chatuserAdapter=ChatListAdapter(friendlist)
 
         mychatlist.adapter =chatuserAdapter
         mychatlist.layoutManager = LinearLayoutManager( this, LinearLayout.VERTICAL,false)
 
-
         if (Authentication.currentUser == null) {
             exitChat()
             return
         }
+
         else
         {
             FirebaseDatabase.getInstance().getReference("Chat_Users")
@@ -72,39 +66,38 @@ class ChatList : AppCompatActivity() {
                             else
                             {
                                 Log.e("hahaha","Current User Not Null")
-                               // Log.e("hahaha","${CurrentUser?.FriendListsUid?.size}")
-                               /* if(CurrentUser?.FriendListsUid?.size !=0) {
-                                    for (i in CurrentUser!!.FriendListsUid) {
-                                        Log.e("hahaha","gggg")
-                                        var TempUser: Users? = null
-                                        FirebaseDatabase.getInstance().getReference("Chat_Users")
-                                                .child(i)
-                                                .addListenerForSingleValueEvent(object : ValueEventListener {
-                                                    override fun onCancelled(p0: DatabaseError) {
-                                                        //exitChat()
-                                                    }
+                                 Log.e("hahaha","${CurrentUser?.FriendListsUid?.size}")
+                                if(CurrentUser?.FriendListsUid?.size !=0) {
+                                     for (i in CurrentUser!!.FriendListsUid) {
+                                         Log.e("hahaha","gggg")
+                                         var TempUser: Users? = null
+                                         FirebaseDatabase.getInstance().getReference("Chat_Users")
+                                                 .child(i)
+                                                 .addListenerForSingleValueEvent(object : ValueEventListener {
+                                                     override fun onCancelled(p0: DatabaseError) {
+                                                         //exitChat()
+                                                     }
 
-                                                    override fun onDataChange(snapshot: DataSnapshot) {
-                                                        TempUser = snapshot.getValue(Users::class.java)
-                                                        if(TempUser!=null)
-                                                        {
-                                                            chatuserAdapter.add(TempUser!!)
-                                                            Log.e("hahaha", "TEMP USER= ${TempUser?.Username}")
-                                                        }
-                                                    }
+                                                     override fun onDataChange(snapshot: DataSnapshot) {
+                                                         TempUser = snapshot.getValue(Users::class.java)
+                                                         if(TempUser!=null)
+                                                         {
+                                                             chatuserAdapter.add(TempUser!!)
+                                                             Log.e("hahaha", "TEMP USER= ${TempUser?.Username}")
+                                                         }
+                                                     }
 
-                                                })
-                                    }
-                                }
-                                else
-                                {
-                                    Log.e("hahaha","uid is null")
-                                }*/
+                                                 })
+                                     }
+                                 }
+                                 else
+                                 {
+                                     Log.e("hahaha","uid is null")
+                                 }
                             }
                         }
                     })
         }
-       // Log.e("hahaha","hehehe")
 
         userImage.setOnClickListener {
             var intent = Intent(this, Profile::class.java)
@@ -112,8 +105,7 @@ class ChatList : AppCompatActivity() {
         }
 
         add.setOnClickListener {
-            val intent = Intent(this, AddChatListMember::class.java)
-            startActivityForResult(intent, 10000)
+            startActivity(Intent(this, AddChatListMember::class.java))
         }
         logout.setOnClickListener {
             exitChat()
@@ -122,30 +114,9 @@ class ChatList : AppCompatActivity() {
 
     }
 
-
-    fun openMessageList(AnotherUserIndex:Int){
-        //new=MainPage.AccountData[AnotherUserIndex]
-       // friend=AnotherUserIndex
-       /// val intent= Intent(this,MessageList::class.java)
-       // startActivityForResult(intent,10000)
-
-    }
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-
-        if(resultCode== Activity.RESULT_OK)
-        {
-           // val intent= Intent(this,ChatList::class.java)
-            //startActivity(intent)
-        }
-    }
     private fun exitChat(){
         Authentication.signOut()
-       startActivity(Intent(this,MainPage::class.java))
+        startActivity(Intent(this,MainPage::class.java))
         finish()
     }
-
 }
-
-
-
-

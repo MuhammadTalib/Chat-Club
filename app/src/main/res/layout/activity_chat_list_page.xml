@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChatList">
+
+
+    <fragment
+        android:id="@+id/chatclubtoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:name="com.example.administrator.chatclub.ChatClubToolbar"
+        />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/h"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
+        android:paddingHorizontal="10dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/chatclubtoolbar" >
+
+        <EditText
+
+            android:id="@+id/searchusers"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:drawableLeft="@drawable/ic_search"
+            android:hint=" Search"
+            android:textSize="18dp"
+
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <com.github.abdularis.civ.CircleImageView
+
+        android:layout_alignBottom="@+id/h"
+        android:id="@+id/userImage"
+        android:background="@drawable/circle"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_person" />
+
+
+    <android.support.v7.widget.RecyclerView
+
+        android:layout_below="@+id/h"
+        android:id="@+id/mychatlist"
+        android:layout_width="match_parent"
+        android:layout_height="480dp"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+
+    <ImageView
+        android:id="@+id/add"
+        android:layout_alignBottom="@+id/mychatlist"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_width="70dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_person_add_black_24dp"
+        />
+    <ImageView
+        android:id="@+id/logout"
+        android:layout_alignBottom="@+id/mychatlist"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="10dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_arrow_back_black_24dp"
+        />
+
+</RelativeLayout>

@@ -13,10 +13,12 @@ import android.support.annotation.DrawableRes
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main_page.*
 
 class MainPage : AppCompatActivity() {
 
+    lateinit var auth: FirebaseAuth
     companion object
     {
         var MessageImagecClicked = 0
@@ -26,6 +28,7 @@ class MainPage : AppCompatActivity() {
         var Posts=ArrayList<post>()
     }
 
+
     var found:Int=0
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -33,23 +36,37 @@ class MainPage : AppCompatActivity() {
         setContentView(R.layout.activity_main_page)
         getSupportActionBar()?.hide()
 
+        auth = FirebaseAuth.getInstance()
+
+        if(auth.currentUser != null){
+            startActivity(Intent(this,ChatListPage::class.java))
+            finish()
+        }
+
         login.setOnClickListener() {
 
+            var emailText:String=emailinput.text.toString()
+            var passText:String=passwordinput.text.toString()
 
-                for (i in AccountData.indices) {
-                    if ((AccountData[i].Email==emailinput.text.toString() || AccountData[i].Username==emailinput.text.toString()) && AccountData[i].password==passwordinput.text.toString()) {
-                        found = 1;
-                        MyAccountIndex=i
-                    }
-                }
-                if (found == 0) {
-                    error.text ="**User Name or Password Incorrect"
-                }
-                else{
-                    val intent= Intent(this,ChatList::class.java)
-                    startActivity(intent)
-                }
+            var isError = false
 
+            emailinput.error = null
+            passwordinput.error = null
+
+            if(emailText.isEmpty()){
+                emailinput.error = "Please enter email"
+                isError = true
+            }
+
+            if(passText.isEmpty()){
+                passwordinput.error = "Please enter email"
+                isError = true
+            }
+
+            if(!isError){
+                signIn(emailText,passText)
+            }
+            startActivity(Intent(this,ChatList::class.java))
 
         }
 
@@ -60,6 +77,32 @@ class MainPage : AppCompatActivity() {
             startActivityForResult(intent,1)
         }
 
+
+    }
+    private fun signIn(email:String,password:String){
+        showProgress()
+        auth.signInWithEmailAndPassword(email,password)
+                .addOnCompleteListener {
+                    hideProgress()
+                    if(it.isSuccessful){
+                        toast("SIGNED IN!")
+                        startActivity(Intent(this,ChatListPage::class.java))
+                        finish()
+                    }else{
+                        toast("Error : ${it.exception?.message}")
+                    }
+                }
+
+    }
+
+    private fun showProgress(){
+        progressView1.show()
+        login.hide()
+    }
+
+    private fun hideProgress(){
+        progressView1.hide()
+        login.show()
     }
 
 }

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    android:background="@color/backgroundcolour"
+    android:background="#ffffff"
     android:padding="30dp"
     tools:context=".SignUpForm">
 
@@ -99,26 +99,45 @@
         android:textColor="#f00"/>
 
     <CheckBox
+        android:layout_marginTop="10dp"
         android:id="@+id/checkbox"
         android:layout_width="wrap_content"
         android:text="Do you agree to Terms and Conditions"
         android:layout_height="wrap_content" />
     <Spinner
+        android:layout_marginTop="30dp"
         android:id="@+id/CountrySpinner"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="50dp"
         >
     </Spinner>
-    <Button
-        android:id="@+id/signupsignup"
-        android:layout_marginTop="30dp"
-        android:textStyle="bold"
-        android:text="SIGN UP"
-        android:textSize="24dp"
-        android:background="@color/darkbackground"
-        android:textColor="@color/blue"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+
+            android:id="@+id/signupsignup"
+            android:layout_marginTop="30dp"
+            android:textStyle="bold"
+            android:text="SIGN UP"
+            android:textSize="24dp"
+            android:background="@color/darkbackground"
+            android:textColor="@color/blue"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"/>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressView"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:visibility="gone"
+
+            />
+
+    </FrameLayout>
 
 </LinearLayout>

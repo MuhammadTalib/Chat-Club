@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "724851198358",
+    "firebase_url": "https://chatclub-12bfb.firebaseio.com",
+    "project_id": "chatclub-12bfb",
+    "storage_bucket": "chatclub-12bfb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724851198358:android:27e58081a90a045a",
+        "android_client_info": {
+          "package_name": "com.example.administrator.chatclub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "724851198358-6o0agjhm11bg7b54l9qvakb321tlc1n4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.administrator.chatclub",
+            "certificate_hash": "fa961ff0c77f95917cb1412fdde4652a631362df"
+          }
+        },
+        {
+          "client_id": "724851198358-of5vhr3c7un6softo7n3skogfik09aqu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRV9udqLguSwoMfJ-daXdWpql5YAWyNlM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "724851198358-of5vhr3c7un6softo7n3skogfik09aqu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

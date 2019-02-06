@@ -1,12 +1,15 @@
 package com.example.administrator.chatclub
 
+import android.content.Intent
 import android.graphics.Bitmap
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 
-class AddChatListAdapter ( val data:ArrayList<UserAccount>,
-                        val onItemClick:(String)->Unit): RecyclerView.Adapter<AddChatListViewHolder>() {
+class AddChatListAdapter ( val data:ArrayList<Users>,
+                        val onItemClick:(Int)->Unit): RecyclerView.Adapter<AddChatListViewHolder>() {
 
 
     var temp=0
@@ -19,22 +22,24 @@ class AddChatListAdapter ( val data:ArrayList<UserAccount>,
     }
     override fun onBindViewHolder(p0: AddChatListViewHolder, p1: Int)
     {
-        if(data[p1]!=MainPage.AccountData[MainPage.MyAccountIndex])
-        {
-            if(data[p1].userImage is Int)
+        //if(data[p1]!=MainPage.AccountData[MainPage.MyAccountIndex])
+       // {
+            /*if(data[p1].userImage is Int)
                 p0.myImage.setImageResource(data[p1].userImage as Int)
             else if(data[p1].userImage is Bitmap)
                 p0.myImage.setImageBitmap(data[p1].userImage as Bitmap)
-
+*/
             p0.myText.text=data[p1].Username
-            p0.myStatus.text=data[p1].lastmessage
-            p0.itemView.setOnClickListener {
-                 onItemClick("${p1}")
+           //p0.myStatus.text=data[p1].lastmessage
+            p0.myAddButton.setOnClickListener {
+                Log.e("hahaha","${p1}")
+                 onItemClick(p1)
+
             }
 
-            p0.myAddButton.setOnClickListener {
+          //  p0.myAddButton.setOnClickListener {
 
-            for(i in MainPage.AccountData[MainPage.MyAccountIndex].FriendList)
+           /* for(i in MainPage.AccountData[MainPage.MyAccountIndex].FriendList)
             {
                 if(i.Username==data[p1].Username)
                 {
@@ -43,14 +48,20 @@ class AddChatListAdapter ( val data:ArrayList<UserAccount>,
             }
             if(temp==0)
             {
-                MainPage.AccountData[MainPage.MyAccountIndex].FriendList.add(data[p1])
+              //  MainPage.AccountData[MainPage.MyAccountIndex].FriendList.add(data[p1])
             }
             else
             {
                 onItemClick("Item Already Exist..")
-            }
-        }
+            }*/
+       // }
 
     }
+    fun add(item:Users){
+        data.add(item)
+        notifyItemInserted(data.size-1)
     }
+
+
+
 }

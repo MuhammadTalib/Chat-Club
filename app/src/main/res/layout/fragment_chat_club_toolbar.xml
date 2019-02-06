@@ -13,15 +13,15 @@
         android:layout_height="wrap_content"
         android:text="Chat List"
         android:textColor="#fff"
-        android:textSize="25dp"
-        android:textStyle="bold"/>
+        android:textSize="18dp"
+        android:textStyle="normal"/>
 
     <ImageView
         android:id="@+id/messengerButton"
         android:onClick="MessengerClick"
-        android:layout_width="45dp"
+        android:layout_width="30dp"
         android:src="@drawable/messeneger"
-        android:layout_height="45dp"
+        android:layout_height="30dp"
         android:layout_gravity="right"/>
 
 </FrameLayout>
