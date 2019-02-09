@@ -6,8 +6,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 
-class ChatListAdapter ( val data:ArrayList<Users>)
-                         /*, val openMessageList:(Int)->Unit )*/ : RecyclerView.Adapter<ChatListViewHolder>() {
+class ChatListAdapter ( val data:ArrayList<Users>,
+                        val openMessageList:(Int)->Unit,
+                        val openProfile:(Int)->Unit) : RecyclerView.Adapter<ChatListViewHolder>() {
 
 
     override fun getItemCount(): Int =data.size
@@ -25,9 +26,12 @@ class ChatListAdapter ( val data:ArrayList<Users>)
 */
         p0.myText.text=data[p1].Username
        // p0.myStatus.text=data[p1].lastmessage
-       /* p0.openChatButton.setOnClickListener {
+        p0.openChatButton.setOnClickListener {
             openMessageList(p1)
-        }*/
+        }
+        p0.itemView.setOnClickListener {
+            openProfile(p1)
+        }
 
     }
     fun add(item:Users){

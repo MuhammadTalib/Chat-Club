@@ -11,21 +11,25 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.android.synthetic.main.activity_chat_list.*
+import kotlinx.android.synthetic.main.activity_chat_list_page.*
 
 class ChatListPage : AppCompatActivity() {
 
     lateinit var Authentication: FirebaseAuth
-    var CurrentUser:Users? = null
     lateinit var friendlist:ArrayList<Users>
     lateinit var chatuserAdapter:ChatListAdapter
+
+    companion object {
+        var chatUid:String?=null
+        var CurrentUser:Users? = null
+        var chatUser:Users?=null
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat_list_page)
         getSupportActionBar()?.hide()
         friendlist= arrayListOf()
-
         Authentication = FirebaseAuth.getInstance()
 
         /* if(MainPage.AccountData[MainPage.MyAccountIndex].userImage is Int)
@@ -34,7 +38,7 @@ class ChatListPage : AppCompatActivity() {
             userImage.setImageBitmap(MainPage.AccountData[MainPage.MyAccountIndex].userImage as Bitmap)
 */
 
-        chatuserAdapter=ChatListAdapter(friendlist)
+        chatuserAdapter=ChatListAdapter(friendlist,::openMessageList,::openProfile)
 
         mychatlist.adapter =chatuserAdapter
         mychatlist.layoutManager = LinearLayoutManager( this, LinearLayout.VERTICAL,false)
@@ -52,27 +56,21 @@ class ChatListPage : AppCompatActivity() {
                     {
                         override fun onCancelled(p0: DatabaseError)
                         {
-                            Log.e("hahaha","OnCancelled")
                             exitChat()
                         }
                         override fun onDataChange(snapshot: DataSnapshot)
                         {
-                            Log.e("hahaha","OnDataChanged")
                             CurrentUser = snapshot.getValue(Users::class.java)
                             if (CurrentUser == null) {
-                                Log.e("hahaha","Current User Null")
                                 exitChat()
                             }
                             else
                             {
-                                Log.e("hahaha","Current User Not Null")
-                                 Log.e("hahaha","${CurrentUser?.FriendListsUid?.size}")
                                 if(CurrentUser?.FriendListsUid?.size !=0) {
                                      for (i in CurrentUser!!.FriendListsUid) {
-                                         Log.e("hahaha","gggg")
                                          var TempUser: Users? = null
                                          FirebaseDatabase.getInstance().getReference("Chat_Users")
-                                                 .child(i)
+                                                 .child(i.frienduid!!)
                                                  .addListenerForSingleValueEvent(object : ValueEventListener {
                                                      override fun onCancelled(p0: DatabaseError) {
                                                          //exitChat()
@@ -83,20 +81,16 @@ class ChatListPage : AppCompatActivity() {
                                                          if(TempUser!=null)
                                                          {
                                                              chatuserAdapter.add(TempUser!!)
-                                                             Log.e("hahaha", "TEMP USER= ${TempUser?.Username}")
                                                          }
                                                      }
 
                                                  })
                                      }
                                  }
-                                 else
-                                 {
-                                     Log.e("hahaha","uid is null")
-                                 }
                             }
                         }
                     })
+
         }
 
         userImage.setOnClickListener {
@@ -113,7 +107,18 @@ class ChatListPage : AppCompatActivity() {
         }
 
     }
+    fun openMessageList(index:Int){
+        chatUser=friendlist[index]
+        chatUid= CurrentUser!!.FriendListsUid[index].chatUid
+        var Intent=Intent(this,MessageList::class.java)
+        startActivity(Intent)
 
+    }
+    fun openProfile(index:Int){
+
+        startActivity(Intent(this,Profile::class.java))
+
+    }
     private fun exitChat(){
         Authentication.signOut()
         startActivity(Intent(this,MainPage::class.java))

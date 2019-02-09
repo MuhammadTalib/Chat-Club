@@ -10,25 +10,19 @@ class MessageListAdapter(val msgs:ArrayList<Message>) : RecyclerView.Adapter<Mes
     val MSG_IN = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessageViewHolder {
-     if(viewType == MSG_IN){
-            return MsgViewHolderIn(LayoutInflater.from(parent.context).inflate(R.layout.msg_item_in,parent,false))
-        }else {
-            return MsgViewHolderOut(LayoutInflater.from(parent.context).inflate(R.layout.msg_item_out,parent,false))
-        }
+
+        val itemView= LayoutInflater.from(parent.context).inflate(R.layout.msg_item_in,parent,false)
+        return MessageViewHolder(itemView)
     }
 
     override fun getItemCount(): Int = msgs.size
 
     override fun onBindViewHolder(viewHolder: MessageViewHolder, position: Int)
     {
-        Log.e("holddd","$position")
         viewHolder.bindItem(msgs[position])
-
-       // if(MainPage.AccountData[ChatList.friend].userImage is Uri)
-           // viewHolder.userimage.setImageURI(MainPage.AccountData[ChatList.friend].userImage as Uri)
     }
 
     override fun getItemViewType(position: Int): Int {
-        return msgs[position].msgSentBy
+        return 1
     }
 }

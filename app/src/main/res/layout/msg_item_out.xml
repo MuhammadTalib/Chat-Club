@@ -2,44 +2,50 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginStart="50dp"
+    android:layout_gravity="end"
     android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:gravity="end">
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="50dp">
+    >
 
+  <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="end"
+      android:background="@drawable/msg_bg_out"
+      android:orientation="vertical"
+      >
+    <TextView
 
-    <LinearLayout
+        android:id="@+id/myMsgTv"
+        android:textColor="#000"
+        android:textSize="15dp"
+        android:padding="8dp"
+        android:text="zasx"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/msg_bg_out"
-        android:orientation="vertical"
-        >
-        <TextView
-            android:visibility="gone"
-            android:id="@+id/myMsgTv"
-              android:textColor="#000"
-            android:textSize="15dp"
-            android:padding="8dp"
 
+        />
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/myMessageImage"
+        android:layout_width="0dp"
+        android:scaleType="centerCrop"
+        android:layout_height="0dp" />
+    <VideoView
 
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/myMessageVideo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        />
 
-            />
-        <ImageView
-            android:visibility="gone"
-            android:id="@+id/myMessageImage"
-            android:layout_width="250dp"
-            android:scaleType="centerCrop"
-            android:layout_height="250dp" />
-        <VideoView
-
-            android:visibility="gone"
-            android:id="@+id/myMessageVideo"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            />
-
-    </LinearLayout>
+  </LinearLayout>
 
 
 </LinearLayout>

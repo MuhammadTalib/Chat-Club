@@ -1,16 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddChatListMember">
+    <TextView
+        android:id="@+id/pi"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:textColor="@color/darkbackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="Friend Requests"/>
+    <View
+        android:id="@+id/pii"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#dedede"
+        android:layout_below="@+id/pi"
+        />
 
     <android.support.v7.widget.RecyclerView
 
+        android:layout_marginTop="2dp"
+        android:visibility="gone"
+        android:layout_below="@+id/pi"
+        android:id="@+id/friend_request_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        />
+    <View
+        android:id="@+id/piii"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#dedede"
+        android:layout_below="@+id/friend_request_list"
+        />
+    <TextView
+        android:id="@+id/pe"
+        android:visibility="gone"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:textColor="@color/darkbackground"
+        android:layout_below="@+id/friend_request_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="People You may know"/>
+    <View
+        android:id="@+id/pee"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#dedede"
+        android:layout_below="@+id/pe"
+        />
+
+    <android.support.v7.widget.RecyclerView
+
+        android:visibility="gone"
+        android:layout_marginTop="1dp"
+        android:layout_below="@+id/pe"
         android:id="@+id/MyAddChatList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
+    <TextView
+        android:id="@+id/nonewrequest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No New Requests!!"
+        android:layout_centerInParent="true"
+        android:textSize="30dp"
+        android:textColor="@color/blue"
+        android:textStyle="italic"/>
 
-</FrameLayout>
+</RelativeLayout>

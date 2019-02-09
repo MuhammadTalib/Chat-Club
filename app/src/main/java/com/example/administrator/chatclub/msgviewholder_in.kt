@@ -8,12 +8,12 @@ import android.view.View
 import android.widget.TextView
 
 open class MsgViewHolderIn(myItem: View) : MessageViewHolder(myItem){
-    val userNameTextView: TextView = itemView.findViewById(R.id.userNameTv)
+  val userNameTextView: TextView = itemView.findViewById(R.id.userNameTv)
 
-    override fun bindItem(msgItem: com.example.administrator.chatclub.Message) {
-        super.bindItem(msgItem)
-        userNameTextView.text = "10:00 P.M"
+  override fun bindItem(msgItem: com.example.administrator.chatclub.Message) {
+    super.bindItem(msgItem)
+    userNameTextView.text = "10:00 P.M"
 
-    }
+  }
 
 }

@@ -9,8 +9,8 @@ import android.widget.TextView
 
 class AddChatListViewHolder(MyItem: View): RecyclerView.ViewHolder(MyItem)
 {
-    val myImage: ImageView =MyItem.findViewById(R.id.image)
-    val myText: TextView =MyItem.findViewById(R.id.name)
-    val myStatus: TextView =MyItem.findViewById(R.id.status)
-    val myAddButton:ImageView=MyItem.findViewById(R.id.add)
+  val myImage: ImageView =MyItem.findViewById(R.id.image)
+  val myText: TextView =MyItem.findViewById(R.id.name)
+  val myStatus: TextView =MyItem.findViewById(R.id.status)
+  val myAddButton:ImageView=MyItem.findViewById(R.id.add)
 }

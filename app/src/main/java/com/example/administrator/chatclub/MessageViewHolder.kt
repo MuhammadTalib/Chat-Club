@@ -17,13 +17,14 @@ open class MessageViewHolder(myItem: View) : RecyclerView.ViewHolder(myItem) {
     val msgMsgImageView: ImageView = itemView.findViewById(R.id.myMessageImage)
     val msgMsgVideoView: VideoView = itemView.findViewById(R.id.myMessageVideo)
 
-    open fun bindItem(msgItem: Message){
-
-       Log.e("binding",msgItem.msgText)
+    open fun bindItem(msgItem: Message)
+    {
+        //msgMsgTextView.text=msgItem.msgText
+    /*   Log.e("binding",msgItem.msgText)
         if(msgItem.msgText!="")
         {
             Log.e("spac","is space")
-            if(msgItem.msgText.length < 22)
+            if(msgItem.msgText!!.length < 22)
             {
                 val params = msgMsgTextView.getLayoutParams()
                 params.width = ViewGroup.LayoutParams.WRAP_CONTENT
@@ -51,6 +52,6 @@ open class MessageViewHolder(myItem: View) : RecyclerView.ViewHolder(myItem) {
        //   msgMsgImageView.visibility=View.VISIBLE
          //  msgMsgImageView.setImageBitmap(msgItem.message_image as Bitmap)
             MainPage.MessageImagecClicked=0
-        }
+        }*/
     }
 }

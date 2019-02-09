@@ -40,7 +40,7 @@ class ChatList : AppCompatActivity() {
         else if(MainPage.AccountData[MainPage.MyAccountIndex].userImage is Bitmap)
             userImage.setImageBitmap(MainPage.AccountData[MainPage.MyAccountIndex].userImage as Bitmap)
 */
-        chatuserAdapter=ChatListAdapter(friendlist)
+        chatuserAdapter=ChatListAdapter(friendlist,::openMessageList,::openProfile)
 
         mychatlist.adapter =chatuserAdapter
         mychatlist.layoutManager = LinearLayoutManager( this, LinearLayout.VERTICAL,false)
@@ -123,11 +123,14 @@ class ChatList : AppCompatActivity() {
     }
 
 
-    fun openMessageList(AnotherUserIndex:Int){
-        //new=MainPage.AccountData[AnotherUserIndex]
-       // friend=AnotherUserIndex
-       /// val intent= Intent(this,MessageList::class.java)
-       // startActivityForResult(intent,10000)
+    fun openMessageList(index:Int){
+
+       startActivity(Intent(this,MessageList::class.java))
+
+    }
+    fun openProfile(index:Int){
+
+        startActivity(Intent(this,Profile::class.java))
 
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

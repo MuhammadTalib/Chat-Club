@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_chat_list.*
+
 
 class PostListAdapter ( val data:ArrayList<post>,
                         val onItemClick:(Int)->Unit, val onButtonClick:(Int)->Unit): RecyclerView.Adapter<PostViewHolder>() {

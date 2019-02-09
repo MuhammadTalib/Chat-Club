@@ -66,7 +66,6 @@ class MainPage : AppCompatActivity() {
             if(!isError){
                 signIn(emailText,passText)
             }
-            startActivity(Intent(this,ChatList::class.java))
 
         }
 
