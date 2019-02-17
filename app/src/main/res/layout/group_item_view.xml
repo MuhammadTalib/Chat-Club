@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.github.abdularis.civ.CircleImageView
+
+        android:id="@+id/userImage"
+        android:background="@drawable/circle"
+        android:scaleType="centerCrop"
+        android:layout_margin="10dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/ic_person" />
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ChatClub Member"
+        android:layout_toEndOf="@+id/userImage"
+        android:layout_marginTop="20dp"
+        android:textSize="16dp"
+        android:textColor="@color/blue"/>
+
+    <CheckBox
+
+        android:id="@+id/select"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="14dp"
+        android:layout_marginRight="20dp"
+        android:button="@xml/custom_checkbox" />
+
+</RelativeLayout>

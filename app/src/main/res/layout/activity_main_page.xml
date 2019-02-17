@@ -10,7 +10,7 @@
     android:layout_marginTop="25dp"
     android:layout_height="match_parent"
     android:background="#FFFF"
-    tools:context=".MainPage">
+    tools:context=".Activities.MainPage">
 
     <ImageView
         android:id="@+id/loo"
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/progressView1"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:visibility="gone"
             />
 
@@ -97,70 +97,70 @@
         android:text="SIGNUP"
 
         />
+    <!--
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_gravity="center"
-            android:background="#000"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="OR"
-            android:textColor="#000"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            android:orientation="horizontal">
 
-        <View
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_gravity="center"
-            android:background="#000" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:background="#000"
+                android:layout_weight="1"/>
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OR"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:background="#000" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="40dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="60dp"
-            android:src="@drawable/google"
-
-            />
-
-        <ImageView
-            android:layout_width="0dp"
-
-            android:layout_weight="1"
-            android:layout_height="40dp"
-            android:layout_marginRight="60dp"
-            android:src="@drawable/facebook"
-
-            />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:src="@drawable/googleplus" />
-    </LinearLayout>
+        </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="60dp"
+                android:src="@drawable/google"
+
+                />
+
+            <ImageView
+                android:layout_width="0dp"
+
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_marginRight="60dp"
+                android:src="@drawable/facebook"
+
+                />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:src="@drawable/googleplus" />
 
 
+</LinearLayout>
+
+-->
 </LinearLayout>

@@ -5,47 +5,47 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp">
 
-    <com.github.abdularis.civ.CircleImageView
+  <com.github.abdularis.civ.CircleImageView
 
 
-        android:id="@+id/posterimage"
-        android:background="@drawable/circle"
-        android:scaleType="centerCrop"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:src="@drawable/ic_person" />
+      android:id="@+id/posterimage"
+      android:background="@drawable/circle"
+      android:scaleType="centerCrop"
+      android:layout_width="70dp"
+      android:layout_height="70dp"
+      android:src="@drawable/ic_person" />
 
 
-    <TextView
-        android:id="@+id/postername"
-        android:text="User Name"
-        android:textColor="#01018e"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="72dp"
-        android:layout_marginTop="18dp"
-        android:textSize="23dp"
+  <TextView
+      android:id="@+id/postername"
+      android:text="User Name"
+      android:textColor="#01018e"
+      android:textStyle="bold"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="72dp"
+      android:layout_marginTop="18dp"
+      android:textSize="23dp"
 
-        />
-    <TextView
-        android:id="@+id/time"
-        android:text="10:00 PM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="72dp"
-        />
-    <TextView
-        android:id="@+id/postContent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:textColor="#000"
-        android:text="sdssf"
-        android:layout_marginTop="80dp"
-        />
+      />
+  <TextView
+      android:id="@+id/time"
+      android:text="10:00 PM"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textSize="16dp"
+      android:layout_marginTop="50dp"
+      android:layout_marginLeft="72dp"
+      />
+  <TextView
+      android:id="@+id/postContent"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textSize="20dp"
+      android:textColor="#000"
+      android:text="sdssf"
+      android:layout_marginTop="80dp"
+      />
 
 
 </FrameLayout>

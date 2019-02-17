@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddChatListMember">
+    tools:context=".Activities.AddChatListMember">
     <TextView
         android:id="@+id/pi"
         android:textSize="17dp"

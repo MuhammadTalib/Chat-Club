@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#f7f7f7"
-    tools:context=".Profile">
+    tools:context=".Activities.Profile">
 
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="#ffffff"
     android:padding="30dp"
-    tools:context=".SignUpForm">
+    tools:context=".Activities.SignUpForm">
 
     <TextView
         android:layout_width="wrap_content"

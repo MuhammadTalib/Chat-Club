@@ -6,77 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MessageList">
-        <!--
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                <com.github.abdularis.civ.CircleImageView
-
-                    android:id="@+id/image1"
-                    android:background="@drawable/circle"
-                    android:scaleType="centerCrop"
-                    android:layout_margin="10dp"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_person" />
-
-                        <TextView
-                            android:id="@+id/username1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text=""
-                            android:textSize="40dp"
-                            android:layout_marginTop="20dp"
-                            android:textColor="#000"
-                            />
-                </LinearLayout>
-                <view
-                    android:background="#6c6c6c"
-                    android:layout_marginTop="20dp"
-                    android:layout_gravity="center"
-                    android:layout_width="350dp"
-                    android:layout_height="1sp"
-                    />
-                <RelativeLayout
-                    android:layout_marginTop="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                <com.github.abdularis.civ.CircleImageView
-
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/userimage1"
-                    android:background="@drawable/circle"
-                    android:scaleType="centerCrop"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_marginLeft="130dp"
-                    android:src="@drawable/ic_person" />
-
-                 <com.github.abdularis.civ.CircleImageView
-
-                     android:background="@drawable/circle"
-                     android:scaleType="centerCrop"
-                     android:layout_marginRight="130dp"
-                     android:layout_alignParentEnd="true"
-                     android:layout_width="80dp"
-                     android:layout_height="80dp"
-                     android:src="@drawable/white" />
-                 <com.github.abdularis.civ.CircleImageView
-
-                     android:layout_marginTop="5dp"
-                    android:id="@+id/myimage1"
-                    android:background="@drawable/circle"
-                    android:scaleType="centerCrop"
-                    android:layout_marginRight="135dp"
-                    android:layout_alignParentEnd="true"
-
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:src="@drawable/ic_person" />
-                </RelativeLayout> -->
+    tools:context=".Activities.MessageList">
 
 
         <android.support.v7.widget.RecyclerView

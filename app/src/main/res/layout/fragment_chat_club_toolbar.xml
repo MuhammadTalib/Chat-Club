@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:padding="7dp"
     android:background="@color/colorPrimary"
-    tools:context=".ChatClubToolbar">
+    tools:context=".Fragments.ChatClubToolbar">
     <TextView
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="10dp"

@@ -5,14 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChatList">
+    tools:context=".Activities.ChatListPage">
 
 
     <fragment
         android:id="@+id/chatclubtoolbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:name="com.example.administrator.chatclub.ChatClubToolbar"
+        android:name="com.example.administrator.chatclub.Fragments.ChatClubToolbar"
         />
 
     <android.support.design.widget.TextInputLayout
@@ -51,31 +51,50 @@
         android:layout_alignParentRight="true"
         android:src="@drawable/ic_person" />
 
-
     <android.support.v7.widget.RecyclerView
 
         android:layout_below="@+id/h"
+        android:id="@+id/mygrouplist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    </android.support.v7.widget.RecyclerView>
+
+    <android.support.v7.widget.RecyclerView
+
+        android:layout_below="@+id/mygrouplist"
         android:id="@+id/mychatlist"
         android:layout_width="match_parent"
-        android:layout_height="480dp"
+        android:layout_height="wrap_content"
         >
 
     </android.support.v7.widget.RecyclerView>
 
     <ImageView
+        android:id="@+id/groupactivity"
+        android:layout_width="50dp"
+        android:layout_marginRight="70dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_height="50dp"
+        android:src="@drawable/group"
+        />
+
+    <ImageView
         android:id="@+id/add"
-        android:layout_alignBottom="@+id/mychatlist"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_width="70dp"
+        android:layout_width="50dp"
         android:layout_marginBottom="10dp"
         android:layout_marginRight="20dp"
-        android:layout_height="70dp"
+        android:layout_height="50dp"
         android:src="@drawable/ic_person_add_black_24dp"
         />
     <ImageView
         android:id="@+id/logout"
-        android:layout_alignBottom="@+id/mychatlist"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_margin="10dp"
         android:layout_width="40dp"

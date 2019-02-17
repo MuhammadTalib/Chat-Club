@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f7f7f7"
+    tools:context=".Activities.Profile">
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#f7f7f7">
+
+        <ImageView
+            android:id="@+id/myCoverphoto"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="#ffffff"
+            android:scaleType="centerCrop"
+            android:src="@drawable/coverphoto"
+            android:adjustViewBounds="true"
+
+            />
+
+
+        <com.github.abdularis.civ.CircleImageView
+
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="105dp"
+            android:src="@drawable/white" />
+
+        <com.github.abdularis.civ.CircleImageView
+            android:id="@+id/myProfileImage"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="111dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profilepic"
+
+            />
+
+        <ImageView
+            android:id="@+id/editpen"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_edit"
+            android:layout_alignBottom="@id/myProfileImage"
+            android:layout_alignRight="@id/myProfileImage"
+
+            />
+        <Button
+            android:id="@+id/editCoverPhoto"
+            android:layout_alignBottom="@+id/myCoverphoto"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="5dp"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:textSize="8dp"
+            android:text="       Edit"
+            android:textColor="#cfcfcf"
+            android:foregroundTint="#c9dada"
+            android:foregroundGravity="center_vertical"
+            android:background="@drawable/buttonbackground"
+            />
+        <ImageView
+            android:layout_alignBottom="@+id/editCoverPhoto"
+            android:layout_alignStart="@+id/editCoverPhoto"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="5dp"
+            android:translationZ="2dp"
+            android:src="@drawable/ic_camera_enhance_black_24dp"
+
+            />
+        <TextView
+            android:id="@+id/MyUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:layout_marginTop="15dp"
+            android:text="My Name"
+            android:layout_below="@+id/myProfileImage"
+            android:layout_centerHorizontal="true"
+            />
+
+        <ImageView
+            android:id="@+id/camera"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignBottom="@+id/postfly"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="11dp"
+            android:src="@drawable/ic_photo_camera_black_24dp" />
+        <EditText
+
+            android:layout_marginLeft="50dp"
+            android:id="@+id/postfly"
+            android:layout_marginTop="360dp"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_height="50dp"
+            android:hint="Whats on your mind"/>
+        <ImageView
+            android:id="@+id/fly"
+            android:layout_marginTop="368dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_send_black_24dp"
+            android:layout_alignParentEnd="true"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/postfly"
+            android:background="#fff"
+            android:orientation="vertical">
+            <android.support.v7.widget.RecyclerView
+
+                android:id="@+id/MyProfilepostList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#f7f7f7"
+                android:layout_margin="0dp">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</ScrollView>
