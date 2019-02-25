@@ -119,19 +119,20 @@ class Users
     }
     public fun find_UserByUid(uidd:String): Users
     {
+        Log.e("err","finding")
         lateinit var auth: FirebaseAuth
         auth = FirebaseAuth.getInstance()
-        Log.e("hahaha","finding")
-        Log.e("hahaha",uidd)
+        Log.e("err","finding")
+        Log.e("err",uidd)
         FirebaseDatabase.getInstance().getReference("Chat_Users")
-                .child(uidd ?: "")
+                .child(uidd)
                 .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onCancelled(p0: DatabaseError) {
-                        Log.e("hahaha","on Cancelled")
+                        Log.e("err","on Cancelled")
                     }
                     override fun onDataChange(snapshot: DataSnapshot) {
-                        Log.e("hahaha","aaaaaaaaaaaaaaaaaaaOndataChanes")
-                       // tempuser=snapshot.getValue(Users::class.java)
+                        Log.e("err","OndataChanes")
+                        tempuser=snapshot.getValue(Users::class.java)
                     }
                 })
 

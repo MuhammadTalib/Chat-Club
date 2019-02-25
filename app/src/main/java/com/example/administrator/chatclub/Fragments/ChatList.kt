@@ -38,6 +38,7 @@ import kotlinx.android.synthetic.main.fragment_chat_list.*
 
 class ChatList : FragmentBase() {
 
+    var CurrentUser: Users? = null
     lateinit var friendlist:ArrayList<Users>
     lateinit var grouplist:ArrayList<GroupOfUsers>
     lateinit var chatuserAdapter: ChatListAdapter
@@ -95,7 +96,7 @@ class ChatList : FragmentBase() {
     }
     fun openProfile(index:Int){
         if(index >= CurrentUser?.GroupListUid?.size!!) {
-            ProfileUser =friendlist[index+ CurrentUser?.GroupListUid?.size!!]
+           // ProfileUser =friendlist[index+ CurrentUser?.GroupListUid?.size!!]
             startActivity(Intent(context, Profile::class.java))
         }
     }
@@ -122,7 +123,7 @@ class ChatList : FragmentBase() {
 
                             if(CurrentUser?.FriendListsUid?.size !=0) {
                                 for (i in CurrentUser!!.FriendListsUid) {
-                                    var TempUser: Users? = null
+                                    var TempUser: Users?
                                     FirebaseDatabase.getInstance().getReference("Chat_Users")
                                             .child(i.frienduid!!)
                                             .addListenerForSingleValueEvent(object : ValueEventListener {

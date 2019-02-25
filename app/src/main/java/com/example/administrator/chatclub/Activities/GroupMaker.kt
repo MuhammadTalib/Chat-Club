@@ -92,7 +92,7 @@ class GroupMaker : BaseActivity(), ChildEventListener {
                 if(i!=CurrentUser?.uid)
                 {
                     FirebaseDatabase.getInstance().getReference("Chat_Users")
-                            .child(i ?: "")
+                            .child(i)
                             .addListenerForSingleValueEvent(object : ValueEventListener {
                                 override fun onCancelled(p0: DatabaseError) {
                                     exitChat()

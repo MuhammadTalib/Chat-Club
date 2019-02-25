@@ -364,7 +364,7 @@ class MessageList : BaseActivity(),ChildEventListener {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == 123 && resultCode == Activity.RESULT_OK) {
             if (data != null) {
-                imgUri = data.data
+                imgUri = data.data!!
                 if (imgUri.toString().contains("image")) {
                     Log.e("hahaha","imageeeeeeee")
                     imageIsComing=1

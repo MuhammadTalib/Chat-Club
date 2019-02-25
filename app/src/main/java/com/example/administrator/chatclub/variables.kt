@@ -13,20 +13,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-fun setValueInFireBase(con:Context,path:String,value:Any)
-{
-    FirebaseDatabase.getInstance().getReference(path)
-            .addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onCancelled(p0: DatabaseError) {
-                    con.exitChat()
-                }
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    snapshot.ref.setValue(value)
-                }
-            })
-}
-
-fun Context.exitChat(){
-    auth.signOut()
-    startActivity(Intent(this, MainPage::class.java))
-}
+var auth: FirebaseAuth = FirebaseAuth.getInstance()
+var chatUid:String?=null
+//var CurrentUser: Users? = null
+//var ProfileUser: Users= CurrentUser!!

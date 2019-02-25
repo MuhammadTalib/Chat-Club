@@ -86,7 +86,7 @@ class ChatListPage :BaseActivity() {
 
                                 if(CurrentUser?.FriendListsUid?.size !=0) {
                                      for (i in CurrentUser!!.FriendListsUid) {
-                                         var TempUser: Users? = null
+                                         var TempUser: Users?
                                          FirebaseDatabase.getInstance().getReference("Chat_Users")
                                                  .child(i.frienduid!!)
                                                  .addListenerForSingleValueEvent(object : ValueEventListener {
