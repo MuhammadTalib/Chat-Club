@@ -5,9 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_marginLeft="25dp"
-    android:layout_marginRight="25dp"
-    android:layout_marginTop="25dp"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
+    android:paddingTop="25dp"
     android:layout_height="match_parent"
     android:background="#FFFF"
     tools:context=".Activities.MainPage">
@@ -42,7 +42,10 @@
         android:id="@+id/emailinput"
         android:textSize="15dp"
         android:drawableLeft="@drawable/ic_email"
-        android:hint="USER NAME/EMAIL ADDRESS" />
+        android:hint="USER NAME/EMAIL ADDRESS"
+        android:imeOptions="actionNext"
+        android:singleLine="true"
+        />
 
 </android.support.design.widget.TextInputLayout>
 
@@ -50,7 +53,6 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:focusableInTouchMode="true"
         android:paddingHorizontal="10dp"
         android:orientation="horizontal">
 
@@ -62,7 +64,10 @@
             android:textSize="15dp"
             android:drawableLeft="@drawable/ic_security"
             android:drawableRight="@drawable/ic_remove_red_eye_black_24dp"
-            android:hint="********"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
 
             />
 

@@ -3,8 +3,11 @@ package com.example.administrator.chatclub.Activities
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.administrator.chatclub.Base.BaseActivity
 import com.example.administrator.chatclub.R
+import com.example.administrator.chatclub.linkpath
+
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main_page.*
 
@@ -15,6 +18,8 @@ class MainPage : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_page)
         getSupportActionBar()?.hide()
+
+        linkpath = intent?.data?.path ?: ""
 
         Authentication = FirebaseAuth.getInstance()
 

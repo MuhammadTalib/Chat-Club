@@ -7,6 +7,11 @@ import android.view.View
 import android.widget.Toast
 import com.example.administrator.chatclub.Activities.MainPage
 import com.example.administrator.chatclub.auth
+import com.example.administrator.chatclub.exitChat
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 open class FragmentBase:Fragment() {
 
@@ -25,6 +30,18 @@ open class FragmentBase:Fragment() {
     }
     fun View.hide(){
         visibility = View.GONE
+    }
+    fun setValueInFireBase(con:Context,path:String,value:Any)
+    {
+        FirebaseDatabase.getInstance().getReference(path)
+                .addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onCancelled(p0: DatabaseError) {
+                        con.exitChat()
+                    }
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        snapshot.ref.setValue(value)
+                    }
+                })
     }
 
 }

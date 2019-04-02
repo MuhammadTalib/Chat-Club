@@ -42,11 +42,13 @@
     </android.support.v7.widget.RecyclerView>
 
     <ImageView
+        android:visibility="gone"
         android:id="@+id/group_done"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:src="@drawable/ic_done_black_24dp"
         android:layout_alignParentEnd="true"
         android:layout_margin="10dp"/>
+
 
 </RelativeLayout>

@@ -1,10 +1,21 @@
-package com.example.administrator.chatclub.Adapters
+package com.example.administrator.chatclub.pager
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import android.widget.LinearLayout
+import android.view.ViewGroup
+import android.R
+import android.content.Context
+import android.content.Context.LAYOUT_INFLATER_SERVICE
+import android.support.v4.content.ContextCompat.getSystemService
+import android.view.LayoutInflater
+import android.view.View
+import android.widget.ImageView
+
 
 class MypagerAdapter(fm: FragmentManager, val pages:ArrayList<Fragment>) : FragmentPagerAdapter(fm){
+
     override fun getItem(position: Int): Fragment = pages[position]
     override fun getCount(): Int = pages.size
   //  override fun getPageTitle(position: Int): CharSequence? = "Hello"

@@ -33,7 +33,6 @@ class MessageListAdapter(val tHIS: Context, val msgs:ArrayList<Message>, val cur
         viewHolder.bindItem(msgs[position])
         if(msgs[position].image!=null)
         {
-            Log.e("hahaha","not null")
             viewHolder.msgMsgImageView.visibility= View.VISIBLE
 
             Glide.with(tHIS).applyDefaultRequestOptions(RequestOptions().apply {
@@ -48,7 +47,6 @@ class MessageListAdapter(val tHIS: Context, val msgs:ArrayList<Message>, val cur
         }
         if(msgs[position].image!=null)
         {
-            Log.e("hahaha","not null")
             viewHolder.msgMsgImageView.visibility= View.VISIBLE
 
             Glide.with(tHIS).applyDefaultRequestOptions(RequestOptions().apply {
@@ -63,7 +61,6 @@ class MessageListAdapter(val tHIS: Context, val msgs:ArrayList<Message>, val cur
         }
         else if(msgs[position].video!=null)
         {
-            Log.e("hahaha","not null")
             viewHolder.msgMsgVideoView.visibility= View.VISIBLE
 
             //Glide.with(tHIS).load(msgs[position].video).into(viewHolder.msgMsgVideoView)

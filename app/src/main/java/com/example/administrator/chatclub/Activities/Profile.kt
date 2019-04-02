@@ -1,21 +1,24 @@
 package com.example.administrator.chatclub.Activities
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.widget.CircularProgressDrawable
+import android.support.v7.widget.Toolbar
+import android.util.Log
+import android.widget.Toast
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.administrator.chatclub.Base.BaseActivity
+import com.example.administrator.chatclub.ProfileUser
 import com.example.administrator.chatclub.R
 import kotlinx.android.synthetic.main.activity_profile.*
+import kotlinx.android.synthetic.main.searchtoolbar.*
 
 class Profile : BaseActivity() {
 
-   // var post=post(MainPage.AccountData[MainPage.MyAccountIndex])
-    //lateinit var photoPath:String
-
-    //lateinit var  selectedImage:Uri
-   // val REQUEST_TAKE_PROFILE_PHOTO=1
-   // val REQUEST_TAKE_COVER_PHOTO=2
-   // val REQUEST_TAKE_POST_IMAGE=3
-   // val RESULT_LOAD_IMAGE=4;
     companion object {
         var MyImageBitmap:Any=0;
         var CameraStatus = 0;
@@ -24,9 +27,24 @@ class Profile : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
+        var mToolbar: Toolbar =findViewById(R.id.searchtoolbar) as Toolbar
+        setSupportActionBar(mToolbar)
+        option.setOnClickListener {
+            val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val clip = ClipData.newPlainText("chat_club", "www.chatclub.com/profile/"+ProfileUser?.Email?.replace("@chatclub.com",""))
+            clipboard.primaryClip = clip
+        }
+
+        MyUserName.text= ProfileUser?.Username
+        if(ProfileUser?.profilepic!=null)
+        Glide.with(this).applyDefaultRequestOptions(RequestOptions()).load(ProfileUser?.profilepic).into(myProfileImage)
+
+        if(ProfileUser?.coverpic!=null)
+            Glide.with(this).applyDefaultRequestOptions(RequestOptions()).load(ProfileUser?.coverpic).into(myCoverphoto)
+
+
         fly.setOnClickListener{
-           // post.postContent=postfly.text.toString()
-           // MainPage.AccountData[MainPage.MyAccountIndex].personalposts.add(post)
+
             postfly.hint="Whats on your mind"
 
         }
@@ -35,12 +53,6 @@ class Profile : BaseActivity() {
             //takePicture(REQUEST_TAKE_POST_IMAGE)
            // MainPage.AccountData[MainPage.MyAccountIndex].personalposts.add(post)
           //  CameraStatus=1
-        }
-        editpen.setOnClickListener{
-           // takePicture(REQUEST_TAKE_PROFILE_PHOTO)
-        }//
-        editCoverPhoto.setOnClickListener {
-          //  takePicture(REQUEST_TAKE_COVER_PHOTO)
         }
 
     }

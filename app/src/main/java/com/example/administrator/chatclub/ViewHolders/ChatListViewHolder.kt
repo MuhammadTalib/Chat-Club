@@ -10,6 +10,6 @@ class ChatListViewHolder(MyItem: View): RecyclerView.ViewHolder(MyItem)
 {
    // val myImage: ImageView =MyItem.findViewById(R.id.image)
     val myText: TextView =MyItem.findViewById(R.id.name)
-   // val myStatus: TextView =MyItem.findViewById(R.id.status)
+    val Profilepic: ImageView =MyItem.findViewById(R.id.pimage)
     val openChatButton:ImageView=MyItem.findViewById(R.id.openchatbtn)
 }

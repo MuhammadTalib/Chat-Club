@@ -15,7 +15,11 @@ import com.example.administrator.chatclub.Models.Country
 import com.example.administrator.chatclub.Models.Users
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_main_page.*
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -66,7 +70,28 @@ class SignUpForm : BaseActivity(),retrofit2.Callback<ArrayList<CountriesResponse
 
         signuppasswordinput.setOnTouchListener(View.OnTouchListener { _, _ ->
 
-            signupemailinput.setText("${signupnameinput.text.toString().replace("\\s".toRegex(), "")}@chatclub.com".toLowerCase())
+            FirebaseDatabase.getInstance().getReference("Emails")
+                    .child(signupemailinput.text.replace(".".toRegex(),"").replace("@".toRegex(),""))
+                    .addListenerForSingleValueEvent(object : ValueEventListener {
+                        override fun onCancelled(p0: DatabaseError) {
+                            Log.e("user","cancelled")
+                            //exitChat()
+                        }
+
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            var Temer = snapshot.getValue(Users::class.java)
+                            if(Temer!=null)
+                            {
+                                signupemailinput.error="Email Already Exist! Please select new!"
+                            }
+                            else
+                            {
+
+                            }
+                        }
+
+                    })
+           // signupemailinput.setText("${signupnameinput.text.toString().replace("\\s".toRegex(), "")}@chatclub.com".toLowerCase())
             false
         })
 
@@ -123,21 +148,36 @@ class SignUpForm : BaseActivity(),retrofit2.Callback<ArrayList<CountriesResponse
                         toast("Signed in!")
                         val fbUser = it.result?.user
                         if (fbUser != null) {
+
                             FirebaseDatabase.getInstance()
                                     .getReference("Chat_Users")
                                     .child(fbUser.uid)
                                     .setValue(Users().apply {
 
                                         this.Email = email
-                                        this.Username = name
+                                        this.username = name
                                         this.uid = fbUser.uid
                                         this.Country = Country
 
                                     }).addOnCompleteListener { dbTask ->
                                         hideProgress()
                                         if (dbTask.isSuccessful) {
-                                            startActivity(Intent(this, FragmentsHolder::class.java))
-                                            finish()
+
+                                            FirebaseDatabase.getInstance()
+                                                    .getReference("Emails")
+                                                    .child(email.replace(".", "").replace("@",""))
+                                                    .setValue(Users().apply{
+                                                        this.Email=email
+                                                    }).addOnCompleteListener{emailtask->
+                                                        if(emailtask.isSuccessful)
+                                                        {
+                                                            startActivity(Intent(this, FragmentsHolder::class.java))
+                                                            finish()
+                                                        }
+
+                                                    }
+
+
                                         } else {
                                             toast("There was an error, please try again")
                                             fbUser.delete()

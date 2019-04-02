@@ -7,12 +7,12 @@
 
     <com.github.abdularis.civ.CircleImageView
 
-        android:id="@+id/image"
+        android:id="@+id/pimage"
         android:background="@drawable/circle"
         android:scaleType="centerCrop"
-        android:layout_margin="10dp"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_margin="7dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:src="@drawable/ic_person" />
 
     <TextView
@@ -40,8 +40,8 @@
         android:id="@+id/openchatbtn"
         android:layout_gravity="right"
         android:layout_marginTop="10dp"
-        android:layout_width="35dp"
-        android:layout_height="50dp"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
         android:layout_marginRight="25dp"
         android:src="@drawable/ic_message_black_24dp"
         />

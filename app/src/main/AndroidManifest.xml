@@ -11,11 +11,12 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="ChatClub"
+        android:label=""
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".Activities.FragmentsHolder"></activity>
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".Activities.GroupActivity"></activity>
+        <activity android:name=".Activities.FragmentsHolder" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -32,12 +33,19 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data
+                    android:scheme="http"
+                    android:host="www.chatclub.com"
+                    android:pathPattern="/.*"/>
+            </intent-filter>
         </activity>
         <activity android:name=".Activities.SignUpForm" />
         <activity android:name=".Activities.Profile" />
         <activity android:name=".Activities.MessageList" />
-        <activity android:name=".Activities.AddChatListMember" />
-        <activity android:name=".Activities.ChatListPage" />
         <activity android:name=".Activities.GroupMaker" />
         <activity android:name=".Base.BaseActivity" />
     </application>

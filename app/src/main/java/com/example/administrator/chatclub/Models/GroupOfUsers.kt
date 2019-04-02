@@ -4,5 +4,5 @@ class GroupOfUsers {
 
     var Name:String?=null
     var uid:String?=null
-    var UsersUid= arrayListOf<String>()
+    var UsersList= arrayListOf<usertempdata>()
 }

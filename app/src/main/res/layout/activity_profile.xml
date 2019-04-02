@@ -18,12 +18,16 @@
         android:orientation="vertical"
         android:background="#f7f7f7">
 
+        <include
+            android:id="@+id/searchtoolbar"
+            layout="@layout/searchtoolbar" ></include>
+
         <ImageView
+            android:layout_below="@+id/searchtoolbar"
             android:id="@+id/myCoverphoto"
             android:layout_width="match_parent"
             android:layout_height="190dp"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:background="#ffffff"
             android:scaleType="centerCrop"
             android:src="@drawable/coverphoto"
@@ -50,46 +54,12 @@
             android:src="@drawable/profilepic"
 
              />
-
-        <ImageView
-            android:id="@+id/editpen"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_edit"
-            android:layout_alignBottom="@id/myProfileImage"
-            android:layout_alignRight="@id/myProfileImage"
-
-            />
-        <Button
-           android:id="@+id/editCoverPhoto"
-           android:layout_alignBottom="@+id/myCoverphoto"
-           android:layout_alignParentEnd="true"
-           android:layout_margin="5dp"
-           android:layout_width="50dp"
-           android:layout_height="20dp"
-           android:textSize="8dp"
-           android:text="       Edit"
-           android:textColor="#cfcfcf"
-           android:foregroundTint="#c9dada"
-           android:foregroundGravity="center_vertical"
-           android:background="@drawable/buttonbackground"
-           />
-        <ImageView
-            android:layout_alignBottom="@+id/editCoverPhoto"
-            android:layout_alignStart="@+id/editCoverPhoto"
-            android:layout_width="14dp"
-            android:layout_height="14dp"
-            android:layout_marginBottom="3dp"
-            android:layout_marginLeft="5dp"
-            android:translationZ="2dp"
-            android:src="@drawable/ic_camera_enhance_black_24dp"
-
-            />
         <TextView
             android:id="@+id/MyUserName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30dp"
+            android:textColor="#000"
             android:layout_marginTop="15dp"
             android:text="My Name"
             android:layout_below="@+id/myProfileImage"
@@ -112,7 +82,7 @@
             android:layout_width="match_parent"
             android:layout_marginBottom="5dp"
             android:layout_height="50dp"
-            android:hint="Whats on your mind"/>
+            android:hint="Write On Your Friends Wall"/>
         <ImageView
             android:id="@+id/fly"
             android:layout_marginTop="368dp"

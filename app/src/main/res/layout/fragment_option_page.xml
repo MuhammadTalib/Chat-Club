@@ -13,6 +13,7 @@
         android:background="#c7c7c7"
         />
     <TextView
+        android:layout_below="@+id/makegroup"
         android:layout_marginTop="1dp"
         android:drawableLeft="@drawable/ic_sentiment_dissatisfied_black_24dp"
         android:id="@+id/logout"
@@ -23,12 +24,7 @@
         android:textSize="20dp"
         android:padding="12dp"
         android:background="#dedede"/>
-    <View
-        android:layout_below="@+id/logout"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#c7c7c7"
-        />
+
     <ImageView
         android:id="@+id/dissatisfy"
         android:visibility="gone"
@@ -39,4 +35,26 @@
         android:layout_marginRight="25sp"
         android:layout_marginTop="200sp"
         android:layout_marginBottom="300dp"/>
+    <View
+        android:layout_below="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#c7c7c7"
+        />
+    <TextView
+        android:layout_marginTop="2dp"
+        android:drawableLeft="@drawable/ic_group_add_black_24dp"
+        android:id="@+id/makegroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="   Make Group"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:padding="12dp"
+        android:background="#dedede"/>
+    <View
+        android:layout_below="@+id/makegroup"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#c7c7c7"/>
 </RelativeLayout>

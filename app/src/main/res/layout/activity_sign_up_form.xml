@@ -62,7 +62,6 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:id="@+id/signupemailinput"
-            android:enabled="false"
             android:drawableLeft="@drawable/ic_email"
             android:textSize="15dp"
             android:hint="EMAIL ADDRESS" />

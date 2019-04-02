@@ -2,6 +2,7 @@ package com.example.administrator.chatclub.Fragments
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -11,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import com.example.administrator.chatclub.Activities.GroupMaker
 import com.example.administrator.chatclub.Base.FragmentBase
 import com.example.administrator.chatclub.R
 import com.example.administrator.chatclub.dialog.dialog
@@ -22,10 +24,14 @@ class OptionPage : FragmentBase() {
                               savedInstanceState: Bundle?): View? {
         var view= inflater.inflate(R.layout.fragment_option_page, container, false)
         var logout_btn:TextView=view.findViewById(R.id.logout)
+        var makegroup_btn:TextView=view.findViewById(R.id.makegroup)
         logout_btn.setOnClickListener {
             val dialog =dialog(context as Activity,"Do You Really Want to Exit","Log Out","Go Back!",::okClicked,::canceltouched)
             dialog.setCancelable(true)
             dialog.show()
+        }
+        makegroup_btn.setOnClickListener {
+            startActivity(Intent(context, GroupMaker::class.java))
         }
         return view
     }

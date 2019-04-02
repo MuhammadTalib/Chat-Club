@@ -2,7 +2,8 @@ package com.example.administrator.chatclub.Activities
 
 import android.os.Bundle
 import android.support.design.widget.TabLayout
-import com.example.administrator.chatclub.Adapters.MypagerAdapter
+import android.widget.Toast
+import com.example.administrator.chatclub.pager.MypagerAdapter
 import com.example.administrator.chatclub.Base.BaseActivity
 import com.example.administrator.chatclub.Fragments.ChatList
 import com.example.administrator.chatclub.Fragments.MakeFriend
@@ -16,6 +17,8 @@ class FragmentsHolder : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragments_holder)
+
+
 
         myPager.adapter = MypagerAdapter(supportFragmentManager, arrayListOf(
 

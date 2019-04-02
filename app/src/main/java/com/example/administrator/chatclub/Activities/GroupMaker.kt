@@ -1,16 +1,19 @@
 package com.example.administrator.chatclub.Activities
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import android.view.View
 import android.widget.LinearLayout
 import com.example.administrator.chatclub.Adapters.UserListAdapter
 import com.example.administrator.chatclub.Base.BaseActivity
+import com.example.administrator.chatclub.CurrGroup
 import com.example.administrator.chatclub.Models.GroupOfUsers
 import com.example.administrator.chatclub.R
 import com.example.administrator.chatclub.Models.Users
+import com.example.administrator.chatclub.Models.usertempdata
+import com.example.administrator.chatclub.tempuser
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
@@ -21,7 +24,6 @@ class GroupMaker : BaseActivity(), ChildEventListener {
 
     lateinit var userRef: DatabaseReference
     var CurrentUser: Users? = null
-    var tempuser: Users?=null
     lateinit var auth: FirebaseAuth
     lateinit var UserAdapter: UserListAdapter
     lateinit var usersList: ArrayList<Users> //all user list
@@ -56,59 +58,46 @@ class GroupMaker : BaseActivity(), ChildEventListener {
 
                         override fun onDataChange(snapshot: DataSnapshot) {
                             CurrentUser = snapshot.getValue(Users::class.java)
-                            Log.e("hahaha","Current User=${CurrentUser?.Username}")
+                            Log.e("hahaha","Current User=${CurrentUser?.username}")
                             if (CurrentUser == null) {
                                 exitChat()
                             }
+                            else
+                                GroupList.add(CurrentUser!!)
 
                         }
                     })
         }
         group_done.setOnClickListener {
-            var G: GroupOfUsers = GroupOfUsers().apply {
-                this.Name=GroupList.map { u->u.Username }.joinToString(",")
-                this.uid=GroupList.map { u->u.uid }.joinToString("||||")
-                this.UsersUid=  GroupList.map { u->u.uid } as ArrayList<String>
-
-
-
-            }
-           /* CurrentUser?.GroupListUid?.add(G)
-
-            FirebaseDatabase.getInstance().getReference("Chat_Users")
-                    .child(CurrentUser?.uid ?: "")
-                    .addListenerForSingleValueEvent(object : ValueEventListener {
-                        override fun onCancelled(p0: DatabaseError) {
-                            exitChat()
-                        }
-
-                        override fun onDataChange(snapshot: DataSnapshot) {
-                            snapshot.ref.child("GroupListUid").setValue(CurrentUser?.GroupListUid)
-                        }
-                    })*/
-            CurrentUser?.add_GroupList(G)
-            for(i in G.UsersUid)
-            {
-                if(i!=CurrentUser?.uid)
+            var uid= FirebaseDatabase.getInstance().getReference("Chat_Users/${CurrentUser?.uid}/GroupListUid").push().key!!
+            CurrGroup=GroupOfUsers().apply {
+                this.Name = GroupList.map { u->u.username }.joinToString(",")
+                this.uid=uid
+                for (i in GroupList.indices)
                 {
-                    FirebaseDatabase.getInstance().getReference("Chat_Users")
-                            .child(i)
-                            .addListenerForSingleValueEvent(object : ValueEventListener {
-                                override fun onCancelled(p0: DatabaseError) {
-                                    exitChat()
-                                }
-
-                                override fun onDataChange(snapshot: DataSnapshot) {
-                                    tempuser = snapshot.getValue(Users::class.java)
-                                    tempuser?.add_GroupList(G)
-
-                                }
-                            })
-
+                    this.UsersList.add(usertempdata().apply {
+                        this.Username=GroupList[i].username
+                        this.Email=GroupList[i].Email
+                        this.uid=GroupList[i].uid!!
+                        this.chatid=uid
+                    })
                 }
             }
-            startActivity(Intent(this, ChatListPage::class.java))
+             for(i in GroupList)
+             {
+                 FirebaseDatabase.getInstance().getReference("Chat_Users/${com.example.administrator.chatclub.auth.currentUser?.uid!!}/sent_requests").push().key!!
+                 FirebaseDatabase.getInstance()
+                        .getReference("Chat_Users")
+                         .child(i.uid!!)
+                         .child("GroupListUid")
+                         .child(uid)
+                         .setValue(CurrGroup)}
 
+            startActivity(Intent(this, GroupActivity::class.java))
+
+        }
+        goback.setOnClickListener {
+            startActivity(Intent(this, FragmentsHolder::class.java))
         }
 
         userRef = FirebaseDatabase.getInstance().getReference("Chat_Users")
@@ -118,11 +107,19 @@ class GroupMaker : BaseActivity(), ChildEventListener {
     fun OnCheckboxChecked(index:Int)
     {
         GroupList.add(usersList[index])
+        if(GroupList.size>1)
+        {
+            group_done.visibility= View.VISIBLE
+        }
     }
 
     fun OnCheckboxUnChecked(index:Int)
     {
         GroupList.remove(usersList[index])
+        if(GroupList.size<2)
+        {
+            group_done.visibility=View.GONE
+        }
     }
     override fun onCancelled(p0: DatabaseError) {
     }
@@ -135,11 +132,11 @@ class GroupMaker : BaseActivity(), ChildEventListener {
 
     override fun onChildAdded(p0: DataSnapshot, p1: String?) {
         val fbuser = p0.getValue(Users::class.java)
-        if (fbuser != null)
+        if (fbuser != null && fbuser.uid != auth.currentUser?.uid)
         {
             usersList.add(fbuser)
             UserAdapter.notifyItemChanged(usersList.size-1)
-            Log.e("hahaha","userrr=${fbuser?.Username}")
+            Log.e("hahaha","userrr=${fbuser.username}")
         }
     }
 

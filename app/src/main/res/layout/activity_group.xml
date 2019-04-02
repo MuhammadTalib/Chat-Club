@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.GroupActivity">
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <ImageView
+            android:id="@+id/group_photo"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/group_p"/>
+        <ImageView
+            android:id="@+id/editpen"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_edit"
+            android:layout_alignBottom="@+id/group_photo"
+            android:layout_alignRight="@id/group_photo"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/group_photo"
+            android:background="@color/blue"
+            />
+        <TextView
+            android:id="@+id/group_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Group Name"
+            android:layout_below="@+id/group_photo"
+            android:textSize="24dp"
+            android:padding="10dp"
+            android:textColor="#000"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@id/group_name"
+            android:background="@color/blue"
+            />
+        <TextView
+            android:layout_marginTop="2dp"
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Group Members"
+            android:layout_below="@+id/group_name"
+            android:textSize="15dp"
+            android:background="#9EC4DA"
+            android:padding="7dp"
+            android:textStyle="normal"
+            android:textColor="#000"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@id/header"
+            android:background="@color/blue"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/group_members"
+            android:layout_width="match_parent"
+            android:layout_below="@id/header"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+        <ImageView
+            android:layout_width="35dp"
+            android:background="#9EC4DA"
+            android:layout_alignRight="@+id/header"
+            android:layout_alignBottom="@+id/header"
+            android:layout_height="34dp"
+            android:src="@drawable/ic_add"/>
+
+    </RelativeLayout>
+</ScrollView>

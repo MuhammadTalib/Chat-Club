@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     android:layout_marginTop="8dp"
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/redback">
 
     <com.github.abdularis.civ.CircleImageView
 
-        android:id="@+id/image"
+        android:id="@+id/profileimage"
         android:background="@drawable/circle"
         android:scaleType="centerCrop"
-        android:layout_margin="10dp"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_margin="7dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:src="@drawable/ic_person" />
 
     <TextView
@@ -39,9 +40,9 @@
     <ImageView
         android:id="@+id/add"
         android:layout_gravity="right"
-        android:layout_margin="10dp"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_margin="7dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:src="@drawable/ic_add"
         />
 

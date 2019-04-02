@@ -21,8 +21,8 @@ class UserListAdapter(val data:ArrayList<Users>,
     }
     override fun onBindViewHolder(p0: GroupViewHolder, p1: Int)
     {
-        p0.UserName.text=data[p1].Username
-        p0.CheckBox.setOnCheckedChangeListener { buttonView, isChecked ->
+        p0.UserName.text=data[p1].username
+        p0.CheckBox.setOnCheckedChangeListener {_, isChecked ->
 
             if (isChecked)
                 OnCheckboxChecked(p1)
